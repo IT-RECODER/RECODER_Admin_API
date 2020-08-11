@@ -12,6 +12,7 @@ const sequelize = new Sequelize(
 
 db.User = require('./user')(sequelize, Sequelize);
 db.Admin = require('./admin')(sequelize, Sequelize);
+db.Main = require('./main')(sequelize, Sequelize);
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
