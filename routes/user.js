@@ -65,4 +65,16 @@ router.delete("/delete/:id", async (req, res, next) => {
   }
 });
 
+router.get("/", async (req, res, next) => {
+  try {
+    const list = await User.findAll({
+      attributes: ['id', 'username', 'userType', 'name', 'clubNumber']
+    });
+    res.status(201).send(list);
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+});
+
 module.exports = router;
