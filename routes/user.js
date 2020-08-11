@@ -26,7 +26,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.put("update/:id", async (req, res, next) => {
+router.put("/update/:id", async (req, res, next) => {
   const { name, userType, clubNumber, username } = req.body;
   try {
     const updateUser = await User.findOne({ where: { id: req.params.id } });
