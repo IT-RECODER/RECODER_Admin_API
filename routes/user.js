@@ -50,4 +50,19 @@ router.put("/update/:id", async (req, res, next) => {
   }
 });
 
+router.delete("/delete/:id", async (req, res, next) => {
+  try {
+    const updateUser = await User.findOne({ where: { id: req.params.id } });
+    if (updateUser) {
+      User.destroy({ where: { id: req.params.id } });
+      return res.status(201).send("사용자 정보 삭제");
+    } else {
+      return res.send("사용자가 존재하지 않습니다.");
+    }
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+});
+
 module.exports = router;
