@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Admin = sequelize.define(
-    "Admin",
+    'Admin',
     {
       username: {
         type: DataTypes.STRING(40),
@@ -19,15 +19,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(40),
         allowNull: false,
       },
-      clubName: {
+      clubNumber: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
     },
     {
-      charset: "utf8",
-      collate: "utf8_general_ci",
-    }
+      charset: 'utf8',
+      collate: 'utf8_general_ci',
+    },
   );
   return Admin;
 };
