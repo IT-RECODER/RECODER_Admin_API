@@ -46,4 +46,10 @@ router.post('/login', isNotLoggedIn, async (req, res, next) => {
   })(req, res, next);
 });
 
+router.get('/logout', isLoggedIn, async (req, res) => {
+  req.logout();
+  req.session.destroy();
+  return res.status(201).send('로그아웃 되었습니다');
+});
+
 module.exports = router;
