@@ -65,10 +65,17 @@ router.delete("/delete/:id", async (req, res, next) => {
   }
 });
 
-router.get("/", async (req, res, next) => {
+router.get("/:page", async (req, res, next) => {
+  const page = req.params.page;
+  let offset = 0;
+  if (page > 1) {
+    offset = 10 * (page - 1);
+  }
   try {
     const list = await User.findAll({
-      attributes: ['id', 'username', 'userType', 'name', 'clubNumber']
+      attributes: ["id", "username", "userType", "name", "clubNumber"],
+      offset: offset,
+      limit: 10,
     });
     res.status(201).send(list);
   } catch (error) {

@@ -6,7 +6,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": process.env.DB_SECRET,
-    "database": "database_development",
+    "database": "recoder_admin",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
